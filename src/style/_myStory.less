@@ -1,0 +1,121 @@
+// @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+html {
+  background-image: url("marble.png");
+  background-size: auto;
+  color: black;
+  font-family: "Comic Sans MS" ,serif;
+  padding-top: 2em;
+}
+
+.page-width {
+  background-color: white;
+}
+
+textarea {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: border-box;
+  color: inherit;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+
+  width: 100%;
+  height: auto;
+}
+
+p:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#launchSettings {
+  background-color: #ccc;
+  border-color: #ccc;
+
+  button {
+    background-color: #ddd;
+    border: 2px outset #999;
+  }
+}
+
+#display {
+  /* article:last-child .passage:last-child {
+    box-sizing: border-box;
+    margin-top: 50vh;
+    margin-bottom: 2em;
+    min-height: 100vh;
+    padding-top: 6em;
+  } */
+  article {
+    background-attachment: fixed;
+    // background-image: url("winlogo.png");
+    background-position: center;
+    // background-size: 16em;
+    color: #000;
+
+    .page-width {
+      background-color: #fff;
+
+      .wintop, .status {
+        background-repeat: no-repeat;
+        content: " ";
+        display: block;
+        margin: 0;
+        margin-left: -1em;
+        padding: .1em 1em;
+        z-index: 1024;
+
+        position: fixed;
+        width: @page-width;
+        max-width: calc(100vw - 2em);
+      }
+      .wintop {
+        background-image: url("wintopright.png"), url("wintopleft.png"), url("wintop.png");
+        background-position: top right, top left, top center;
+        top: 0;
+        height: 4em;
+
+        &.hidden {
+          opacity: 0;
+          top: 50vh;
+        }
+      }
+      .status {
+        background-color: #c0c7cf;
+        background-position: bottom left;
+        border-top: 1px solid #000;
+        bottom: 0;
+        font-family: sans-serif;
+        min-height: 1em;
+
+        &.hidden {
+          bottom: -4em;
+        }
+        &.flash {
+          background-color: black;
+          color: #c0c7cf;
+          transition: 0s;
+        }
+      }
+    }
+
+  }
+
+  textarea.madlipper {
+    opacity: 0;
+    height: 2em;
+  }
+  p .cursor {
+    border-right: 1px solid #000;
+  }
+}
+
+#status {
+  background-color: #333;
+  padding: .1em .2em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+}
