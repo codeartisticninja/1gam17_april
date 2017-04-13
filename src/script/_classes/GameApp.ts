@@ -1,7 +1,5 @@
 "use strict";
 import BaseGameApp = require("./lib/BaseGameApp");
-import MadLipper = require("./tellers/MadLipper");
-
 
 
 /**
@@ -12,8 +10,7 @@ class GameApp extends BaseGameApp {
 
   constructor(storyElement: string, displayElement=storyElement) {
     super(storyElement, displayElement);
-    this.story.addTeller("p", MadLipper);
-    this.story.scrollInertia = 1;
+    // this.story.scrollInertia = 1;
     this.initLauchSettings();
   }
 
