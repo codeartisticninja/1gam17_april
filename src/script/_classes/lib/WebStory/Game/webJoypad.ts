@@ -1,11 +1,10 @@
 "use strict";
 import Vector2 = require("./Vector2");
 
-
 /**
  * joypad module for unified game controls on the web
  * 
- * @date 21-02-2017
+ * @date 26-apr-2017
  */
 interface JoyTouch {
     id:any,
@@ -19,6 +18,7 @@ module joypad {
     enabled:boolean  = false,
     device:string    = localStorage.getItem("joypad.device"),
     mode:string,
+    UIparent:HTMLElement = document.body,
 
     dir:Vector2  = new Vector2(),
     fire:boolean = false,
@@ -315,6 +315,9 @@ module joypad {
   }
 
   function _onTouchUp(e:TouchEvent) {
+    if (_leftThumb.id == null && _rightThumb.id == null) {
+      _touchUI.classList.add("inactive");
+    }
     for (var j = 0; j < e.changedTouches.length; j++) {
       var touchEvent = e.changedTouches[j];
       var touch:JoyTouch;
@@ -324,9 +327,6 @@ module joypad {
         touch.id = null;
         touch.dir.set(0);
       }
-    }
-    if (_leftThumb.id == null && _rightThumb.id == null) {
-      _touchUI.classList.add("inactive");
     }
   }
 
@@ -348,7 +348,7 @@ module joypad {
             <div class="knob"></div>
           </div>
         </div>`;
-      document.body.appendChild(_touchUI);
+      joypad.UIparent.appendChild(_touchUI);
       var leftPad  = <HTMLElement>_touchUI.querySelector(".left");
       var rightPad = <HTMLElement>_touchUI.querySelector(".right");
       leftPad.addEventListener( "touchstart", _onTouchDown);

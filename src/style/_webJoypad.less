@@ -1,8 +1,8 @@
 #webJoypad {
   @active-delay: 0s;
   @active-duration: .5s;
-  @inactive-delay: 10s;
-  @inactive-duration: 3s;
+  @inactive-delay: 0s;
+  @inactive-duration: .5s;
   overflow: visible;
   position: fixed;
   transition: 1s 0s;
@@ -87,7 +87,7 @@
 
       .slider, .fire {
         transition: margin @inactive-duration @inactive-delay;
-        margin: 0em;
+        margin: -.5em;
       }
     }
   }
